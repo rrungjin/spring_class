@@ -41,7 +41,17 @@ public class DataBaseConfiguration {
 		sqlSessionFactoryBean.setMapperLocations(
 				applicationContext.getResources("classpath:/mapper/**/sql-*.xml")
 				);
+		// Mybatis 설정 추가
+		sqlSessionFactoryBean.setConfiguration(mybatisConfig());
+		
 		return sqlSessionFactoryBean.getObject();
+	}
+	
+	@Bean
+	@ConfigurationProperties(prefix = "mybatis.configuration")
+	public org.apache.ibatis.session.Configuration mybatisConfig() {
+		// TODO Auto-generated method stub
+		return new org.apache.ibatis.session.Configuration() ;
 	}
 	@Bean
 	public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
