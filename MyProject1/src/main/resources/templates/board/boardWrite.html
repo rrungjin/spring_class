@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko" xmls:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>게시판 작성</title>
+<link th:href="@{/bootstrap3.2.2/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<form id ="frm" name ="frm" method="POST" action="/board/boardInsert" encType="multipart/form-data">
+			<h2> 글 작성 </h2>
+			<table class="table table-striped">
+				
+				<tr>
+					
+					<td>제목</td>
+					<td><input class="form-control" type="text" id ="title" name ="title"></td>
+					
+				</tr>
+				
+				<tr>
+					<td colspan="2">
+						<textarea class="form-control" id="contents" name="contents"></textarea>
+					</td>
+				</tr>
+			</table>
+			<input type ="file" id ="files" name ="files" multiple="multiple">
+			<input type = "submit" id = "submit" value = "저장" class="btn btn-success" >
+			<a href="/board/boardList" class="btn btn-primary">목록으로</a>
+		</form>
+		
+	</div>
+	
+	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+    <script src="bootstrap3.2.2/js/bootstrap.min.js"></script>
+</body>
+</html> 

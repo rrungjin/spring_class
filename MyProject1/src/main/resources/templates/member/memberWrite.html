@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko" xmls:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>게시판 작성</title>
+<link th:href="@{/bootstrap3.2.2/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<form id ="frm" name ="frm" method="POST" action="/member/memberInsert" encType="multipart/form-data">
+			<h2> 회원가입 </h2>
+			<table class="table table-striped">
+				
+				<tr>
+					
+					<td>ID</td>
+					<td><input class="form-control" type="text" id ="memberid" name ="memberid"></td>
+					
+				</tr>
+				
+				<tr>
+					<td>Role</td>
+					<td><span class= "input-group-addon">
+						 <input type="radio" aria-label="admin" name = "role" id = "role" value="admin">admin
+						 <input type="radio" aria-label="user" name = "role" id = "role" value="user">user
+					</span>
+				</tr>
+				<tr>
+					<td>PW</td>
+					<td><input type="password" class = "form-control" id ="pw" name ="pw"></td>
+					
+				</tr>
+				<tr>
+					<td>Name</td>
+					<td><input class="form-control" type="text" id ="name" name ="name"></td>
+				</tr>
+				<tr>
+					<div class="input-group">
+						<td>Email <span class="input-group-addon " id="basic-addon1">@</span></td>
+						<td> 
+						<input class="form-control" type="text" id ="email" name ="email"></td>
+					</div>
+				</tr>
+			</table>
+			<input type = "submit" id = "submit" value = "저장" class="btn btn-success" >
+			<a href="/board/boardList" class="btn btn-primary">목록으로</a>
+		</form>
+		
+	</div>
+	
+	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+    <script src="bootstrap3.2.2/js/bootstrap.min.js"></script>
+</body>
+</html> 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" xmls:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>게시판 리스트12</title>
+<link th:href="@{/bootstrap3.2.2/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h2> 회원 목록</h2>
+		<table class="table table-striped">
+			<colgroup>
+				<col width="15%"/>
+				<col width="*"/>
+				<col width="15%"/>
+				<col width="20%"/>
+			</colgroup>
+			<thead>
+				<th scope="col">ID</th>
+				<th scope="col">이름</th>
+				<th scope="col">회원가입일</th>
+				<th scope="col">Email</th>
+			</thead>
+			<tr th:if="${#lists.size(list)} > 0" th:each="vo : ${list}">
+				<td th:text="${vo.memberid}"></td>
+				<td class="title">
+					<a href="/member/memberDetail?memberid="th:attrappend="href=${vo.memberid}" th:text="${vo.name}"></a>
+				</td>
+				<td th:text="${vo.joindate}"></td>
+				<td th:text="${vo.email}"></td>
+			</tr>
+			<tr th:unless="${#lists.size(list)} >0">
+				<td colspan="4" class="text-center">조회된 결과가 없습니다.</td>
+			</tr>
+		</table>
+		<a href="/member/memberWrite" class="btn btn-default" >회원가입</a>
+	</div>
+	
+	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+    <script src="bootstrap3.2.2/js/bootstrap.min.js"></script>
+</body>
+</html> 
