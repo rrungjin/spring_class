@@ -2,6 +2,8 @@ package kr.inhatc.spring.configuration;
 
 
 
+import java.util.Properties;
+
 import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -56,5 +58,18 @@ public class DataBaseConfiguration {
 	@Bean
 	public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
 		return new SqlSessionTemplate(sqlSessionFactory);
+	}
+	
+	/**
+	 * <pre>
+	 * 1. 개요 : JPA 설정
+	 * 2. 처리내용 : JPA 설정 빈 등록
+	 * </pre>
+	 * @return
+	 */
+	@Bean
+	@ConfigurationProperties(prefix = "spring.jpa")
+	public Properties hibernateConfig() {
+		return new Properties();
 	}
 }
